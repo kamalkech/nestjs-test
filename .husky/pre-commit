@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm test --uncommit
+# npm test --uncommit
+# npm run pretty-quick --staged && npm run lint

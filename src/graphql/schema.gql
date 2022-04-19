@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PermissionUser {
+  action: PermissionAction!
+  name: String!
+}
+
+enum PermissionAction {
+  CREATE
+  READ
+  UPDATE
+  DELETE
+}
+
+type User {
+  username: String!
+  isAdmin: Boolean!
+  roles: [Role!]!
+  permissions: [PermissionUser!]
+}
+
+enum Role {
+  User
+  Admin
+}
+
+type Cat {
+  _id: ID!
+  name: String!
+  age: Float!
+  breed: String!
+  owner: User!
+}
+
+type Query {
+  getUsers: [User!]!
+  getUserById(id: ID!): User!
+  getCats: [Cat!]!
+  getCatById(id: ID!): Cat!
+}
+
+type Mutation {
+  createCat(input: CreateCatDto!): Cat!
+}
+
+input CreateCatDto {
+  name: String!
+  age: Float!
+  breed: String!
+  owner: ID!
+}
